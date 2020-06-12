@@ -1,0 +1,117 @@
+<%- layout('layouts/account.ejs') %>
+<div class="container pricing pricing-view" id="pricing">
+  <form action="/new-pricing" method="POST">
+    <div class="form-row pricing-row">
+      <div class="col-md-12">
+        <h1>Create Pricing</h1>
+        <hr>
+        <div class="form-row">
+          <div class="col-sm-12 col-md-2">
+            <div class="form-group">
+              <label>Title: &nbsp;</label>
+              <input class="form-control" type="text" name="title" required>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-2">
+            <div class="form-group">
+              <label>Company: &nbsp;</label>
+              <input class="form-control" type="text" name="company" required>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-2">
+            <div class="form-group">
+              <label>Template: &nbsp;</label>
+              <select class="form-control" name="template" id="template" required>
+                <option value="" disabled selected hidden>Select your option</option>
+                <%
+                                  var options = ["White","Blue","Green","Red","Black","Orange","Yellow","Purple"];
+                                  for (var i = 0; i < options.length; i++ )
+                                  {
+                                      var selected = (account.country == options[i]) ? "selected" : "";
+                              %>
+                <option value="<%=i+1%>" <%=selected %></option><%=options[i] %></option>
+                <%  }  %>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-2">
+            <div class="form-group">
+              <label>Region: &nbsp;</label>
+              <select class="form-control" name="region" id="region" required readonly>
+                <option value="1" selected >US-East (Virginia)</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-3">
+            <div class="form-group">
+              <label>User: &nbsp;</label>
+              <input class="form-control" type="text" name="user" required value="<%= account.email %>" readonly>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="form-row">
+          <div class="col-sm-12 col-md-3">
+            <div class="form-group">
+              <label>Name:</label>
+              <input class="form-control" type="text" name="name" required value="">
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-3">
+            <div class="form-group">
+              <label>OS:</label>
+              <select class="form-control" name="os" id="os" required>
+                <option value="" disabled selected hidden>Select your option</option>
+                <%
+                                  var options = ["Linux","Windows"];
+                                  for (var i = 0; i < options.length; i++ )
+                                  {
+                                      var selected = (account.country == options[i]) ? "selected" : "";
+                              %>
+                <option value="<%=i+1%>" <%=selected %></option><%=options[i] %></option>
+                <%  }  %>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-3">
+            <div class="form-group">
+              <label>Instance Type:</label>
+              <select class="form-control" name="instance" id="instance" required>
+                <option value="" disabled selected hidden>Select your option</option>
+                <%
+                                  var options = ["m5.large","m5.xlarge","m5.2xlarge","m5.4xlarge","m5.8xlarge","m5.12xlarge","m5.16xlarge","m5.24xlarge","c5.large","c5.xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.12xlarge","c5.18xlarge","c5.24xlarge","r5.large","r5.xlarge","r5.2xlarge","r5.4xlarge","r5.8xlarge","r5.12xlarge","r5.16xlarge","r5.24xlarge"];
+                                  for (var i = 0; i < options.length; i++ )
+                                  {
+                                      var selected = (account.country == options[i]) ? "selected" : "";
+                              %>
+                <option value="<%=options[i]%>" <%=selected %></option><%=options[i] %></option>
+                <%  }  %>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-2">
+            <div class="form-group">
+              <label>EBS Storage (GB):</label>
+              <input class="form-control" type="text" name="storage" required value="">
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="form-row">
+          <div class="col-sm-12 col-md-3">
+            <div class="form-group">
+              <label>Storage S3 Standard (GB):</label>
+              <input class="form-control" type="text" name="s3" required value="">
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-12 content-right">
+              <button class="btn btn-primary form-btn" type="submit">CREATE</button>
+              <a class="btn btn-danger" href="/pricing" role="button">CANCEL</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

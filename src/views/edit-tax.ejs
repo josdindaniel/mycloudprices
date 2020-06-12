@@ -1,0 +1,36 @@
+<%- layout('layouts/account.ejs') %>
+<div class="container profile3 profile-view" id="profile">
+    <form action="/edit-tax/<%= tax.id %>?_method=PUT" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="form-row profile-row">
+            <div class="col-md-12">
+                <h1>Tax Edit</h1>
+                <hr>
+                <div class="form-row">
+                    <div class="col-sm-12 col-md-16">
+                        <div class="form-group">
+                            <label>Country: &nbsp;</label>
+                            <input class="form-control" type="text" name="country" required autocomplete="off" value="<%= tax.country %>" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm-12 col-md-16">
+                        <div class="form-group">
+                            <label>Percentage:</label>
+                            <input class="form-control" type="number" step="any" name="ntax" required autocomplete="off"
+                                value="<%= tax.wht %>">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-row">
+                    <div class="col-md-12 content-right">
+                        <button class="btn btn-primary form-btn" type="submit">UPDATE</button>
+                        <a class="btn btn-danger" href="/tax" role="button">CANCEL</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

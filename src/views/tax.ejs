@@ -1,0 +1,46 @@
+<%- layout('layouts/account.ejs') %>
+<div class="container profile3 profile-view">
+    <div class="form-row profile-row">
+        <div class="col-md-12">
+            <h1>Taxes</h1>
+            <hr>
+            <div class="form-row form-group">
+                <a class="btn btn-outline-info btn-lg" href="/new-tax" role="button">Create</a>
+            </div>
+        </div>
+        <table id="table_id" class="display">
+            <thead>
+                <tr>
+                    <th class="th-sm">Country</th>
+                    <th class="th-sm">Tax</th>
+                    <th class="th-sm">Edit</th>
+                    <th class="th-sm">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% taxes.forEach(function(tax){ %>
+                <tr>
+                    <td><%= tax.country %></td>
+                    <td><%= tax.wht %> %</td>
+                    <td><a href="edit-tax/<%= tax.id %>" class="badge badge-primary btn-block">Edit</a>
+                    </td>
+                    <td>
+                        <form action="/delete-tax/<%= tax.id %>?_method=DELETE" method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="badge badge-danger btn-block">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Country</th>
+                    <th>Tax</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

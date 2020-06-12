@@ -1,0 +1,56 @@
+<%- layout('layouts/account.ejs') %>
+<div class="container profile2 profile-view">
+    <div class="form-row profile-row">
+        <div class="col-md-12">
+            <h1>Users</h1>
+            <hr>
+            <div class="form-row form-group">
+                <a class="btn btn-outline-info btn-lg" href="/new-user" role="button">Create</a>
+            </div>
+        </div>
+        <table id="table_id" class="display">
+            <thead>
+                <tr>
+                    <th class="th-sm">First name</th>
+                    <th class="th-sm">Last name</th>
+                    <th class="th-sm">Email address</th>
+                    <th class="th-sm">State</th>
+                    <th class="th-sm">Role</th>
+                    <th class="th-sm">Edit</th>
+                    <th class="th-sm">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(function(usr){ %>
+                <tr>
+                    <td><%= usr.name %></td>
+                    <td><%= usr.lastname %></td>
+                    <td><%= usr.email %></td>
+                    <td><% if (usr.status == true) { %> Active <% } else { %> Inactive <% } %></td>
+                    <td><% if (usr.role == 1) { %> Administrator <% } if (usr.role == 2) { %> Editor
+                        <% } if (usr.role == 3) { %> Viewer <% } %></td>
+                    <td><a href="edit-user/<%= usr.id %>" class="badge badge-primary btn-block">Edit</a>
+                    </td>
+                    <td>
+                        <form action="/delete-user/<%= usr.id %>?_method=DELETE" method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="badge badge-danger btn-block">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Email address</th>
+                    <th>State</th>
+                    <th>Role date</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>

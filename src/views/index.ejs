@@ -1,0 +1,92 @@
+<%- layout('layouts/main.ejs') %>
+<div id="about" class="highlight-blue">
+    <div class="container">
+        <div class="intro">
+            <h2 class="text-center">Welcome to MyCloudPrices</h2>
+            <p class="text-center">A solutions to create your own quotes of Amazon Web Services <br>cloud solutions to
+                your customers</p>
+        </div>
+    </div>
+</div>
+<div class="features-boxed">
+    <div class="container" id="features">
+        <div class="intro">
+            <h2 class="text-center">Features </h2>
+            <p class="text-center">A powerful web application for the creation of real-time quotes from Amazon Web
+                Services cloud services.</p>
+        </div>
+        <div class="row justify-content-center features">
+            <div class="col-sm-6 col-md-5 col-lg-4 item">
+                <div class="shadow-lg box" data-bs-hover-animate="bounce"><i class="fa fa-refresh icon"></i>
+                    <h3 class="name">Update Prices</h3>
+                    <p class="description">Updated prices of Amazon Web Services in real time using the AWS Price List
+                        API Service API.</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-4 item">
+                <div class="shadow-lg box" data-bs-hover-animate="bounce"><i class="fa fa-th-list icon"></i>
+                    <h3 class="name">AWS Calculator</h3>
+                    <p class="description">Dynamic and improved calculator to check the prices of the AWS cloud services
+                        you want.</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-4 item">
+                <div class="shadow-lg box" data-bs-hover-animate="bounce"><i class="fa fa-list-alt icon"></i>
+                    <h3 class="name">Custom Taxes</h3>
+                    <p class="description">Module that allows to include in the quotations the withholdings taxes of
+                        each country.</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-4 item">
+                <div class="shadow-lg box" data-bs-hover-animate="bounce"><i class="fa fa-bar-chart icon"></i>
+                    <h3 class="name">Quotation Management</h3>
+                    <p class="description">Administration of the quotes generated, in which they are stored in the
+                        database to be consulted, edited or deleted.</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-4 item">
+                <div class="shadow-lg box" data-bs-hover-animate="bounce"><i class="fa fa-table icon"></i>
+                    <h3 class="name">Predefined Templates</h3>
+                    <p class="description">Set of predefined templates with different designs to choose the style of the
+                        price quotes.</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-5 col-lg-4 item">
+                <div class="shadow-lg box" data-bs-hover-animate="bounce"><i class="fa fa-user-circle-o icon"></i>
+                    <h3 class="name">User Administration</h3>
+                    <p class="description">Create and manage different users of your account for your work team allowing
+                        you to create quotes in parallel.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="demo" class="demo-boxed">
+    <div class="container">
+        <div class="intro">
+            <h2 class="text-center">Demo</h2>
+            <p class="text-center">Experience the main features of MyCloudPrices in this video:</p>
+        </div>
+        <div class="row justify-content-center features">
+            <div class="col">
+                <div class="video-container"><iframe allowfullscreen frameborder="0"
+                        src="https://player.vimeo.com/video/59749907"></iframe></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="contact" class="contact-clean">
+    <form class="shadow-lg" id="contactForm">
+        <h2 class="text-center">Contact us</h2>
+        <div class="form-group"><input class="form-control" type="text" name="name" required placeholder="Name">
+        </div>
+        <div class="form-group"><input class="form-control" type="email" name="email" required placeholder="Email">
+        </div>
+        <div class="form-group"><input class="form-control" type="text" name="subject" required placeholder="subject">
+        </div>
+        <div class="form-group"><textarea class="form-control" rows="14" name="content" required
+                placeholder="Message"></textarea></div>
+        <div id="toast"></div>
+        <div class="form-group"><button class="btn btn-primary" type="submit" id="submit">send </button></div>
+    </form>
+</div>

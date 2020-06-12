@@ -1,0 +1,12 @@
+#app {
+  font-size: 2.2em;
+}
+
+#navcol-1 {
+  flex-grow: 0;
+}
+
+.alert {
+  margin-bottom: 0px;
+  text-align: center;
+}

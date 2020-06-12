@@ -1,0 +1,61 @@
+<%- layout('layouts/account.ejs') %>
+<div class="container pricing pricing-view" id="pricing">
+  <div class="form-row pricing-row">
+    <div class="col-md-12">
+      <h1>Pricing</h1>
+      <hr>
+      <div class="form-row form-group">
+        <a class="btn btn-outline-info btn-lg" href="/new-pricing" role="button">Create</a>
+      </div>
+      <table id="table_id" class="display">
+        <thead>
+          <tr>
+            <th class="th-sm">Title</th>
+            <th class="th-sm">Company</th>
+            <th class="th-sm">Template</th>
+            <th class="th-sm">Region</th>
+            <th class="th-sm">User</th>
+            <th class="th-sm">View</th>
+            <th class="th-sm">Edit</th>
+            <th class="th-sm">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% price.forEach(function(x){ %>
+          <tr>
+            <td><%= x.title %></td>
+            <td><%= x.company %></td>
+            <td><% if (x.template == 1) { %> White <% } if (x.template == 2) { %> Blue <% } if (x.template == 3) { %>
+              Green <% } if (x.template == 4) { %> Red <% } if (x.template == 5) { %> Black
+              <% } if (x.template == 6) { %> Orange <% } if (x.template == 7) { %> Yellow
+              <% } if (x.template == 8) { %> Purple <% } %></td>
+            <td><% if (x.region == 1) { %> US-East (Virginia) <% } %></td>
+            <td><%= x.user %></td>
+            <td><a href="view-pricing/<%= x.id %>" class="badge badge-info btn-block">View</a></td>
+            <td><a href="edit-pricing/<%= x.id %>" class="badge badge-primary btn-block">Edit</a></td>
+
+            <td>
+              <form action="/delete-pricing/<%= x.id %>?_method=DELETE" method="POST">
+                <input type="hidden" name="_method" value="DELETE" />
+                <button type="submit" class="badge badge-danger btn-block">Delete</button>
+              </form>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>Title</th>
+            <th>Company</th>
+            <th>Template</th>
+            <th>Region</th>
+            <th>User</th>
+            <th>View</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>

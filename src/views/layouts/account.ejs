@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>MyCloudPrices</title>
+    <base href="/">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/ionicons.min.css">
+    <link rel="stylesheet" type="text/css" href="css/Contact-Form-Clean.css">
+    <link rel="stylesheet" type="text/css" href="css/Dark-NavBar-1.css">
+    <link rel="stylesheet" type="text/css" href="css/Dark-NavBar.css">
+    <link rel="stylesheet" type="text/css" href="css/Demo-Boxed.css">
+    <link rel="stylesheet" type="text/css" href="css/Features-Boxed.css">
+    <link rel="stylesheet" type="text/css" href="css/Footer-Dark.css">
+    <link rel="stylesheet" type="text/css" href="css/Highlight-Blue.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+    <link rel="stylesheet" type="text/css" href="css/Pretty-Registration-Form.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/Login-Form-Clean.css">
+    <link rel="stylesheet" type="text/css" href="css/Profile-Edit-Form.css">
+    <link rel="stylesheet" type="text/css" href="css/Pricing-Form.css">
+    <link rel="stylesheet" type="text/css" href="css/Recover-Form-Clean.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/Video-Responsive.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="css/Team-Grid.css">
+    <link rel="stylesheet" type="text/css" href="css/Lightbox-Gallery.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#table_id').DataTable();
+        });
+    </script>
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-dark navbar-expand-md bg-dark navigation-clean-button">
+            <div class="container">
+                <a class="navbar-brand text-nowrap text-white" id="app"
+                    style="font-size: 2.5em;">MyCloudPrices</a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navcol-1" style="font-size: 20px;">
+                    <ul class="nav navbar-nav mx-auto">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" href="/pricing" style="font-size: 1.3em;">Pricing</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" href="/tax" style="font-size: 1.3em;">Tax</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" href="/template" style="font-size: 1.3em;">Templates</a>
+                        </li>
+                        <%
+                            if(account.role == 1) {
+                        %>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" href="/user" style="font-size: 1.3em;">Users</a>
+                        </li>
+                        <% } %>
+                    </ul>
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" href="/account" style="font-size: 1.3em;">
+                                <i class="fas fa-user-cog" style="padding-right: 10px;"></i>My account</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" href="/logout" style="font-size: 1.3em;">
+                                <i class="fas fa-power-off" style="padding-right: 10px;"></i>Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <% if (signupMessage.length > 0) { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong><%= signupMessage %></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <% } %>
+    <% if (signinMessage.length > 0) { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong><%= signinMessage %></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <% } %>
+    <% if (newUserMessage.length > 0) { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong><%= newUserMessage %></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <% } %>
+    <% if (newUserMessageWarning.length > 0) { %>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong><%= newUserMessageWarning %></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <% } %>
+    <% if (updateUserMessage.length > 0) { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong><%= updateUserMessage %></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <% } %>
+    <% if (deleteUserMessage.length > 0) { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong><%= deleteUserMessage %></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <% } %>
+    <% if (newTaxMessage.length > 0) { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong><%= newTaxMessage %></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <% } %>
+    <% if (newTaxMessageWarning.length > 0) { %>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong><%= newTaxMessageWarning %></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <% } %>
+    <% if (updateTaxMessage.length > 0) { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong><%= updateTaxMessage %></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <% } %>
+    <% if (RoleMessageWarning.length > 0) { %>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong><%= RoleMessageWarning %></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <% } %>
+    <%- body %>
+    <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 item text text-center">
+                        <h3>MyCloudPrices</h3>
+                        <p>A powerful web application for the creation of real-time quotes from Amazon Web Services
+                            cloud services.<br></p>
+                    </div>
+                    <div class="col item social">
+                        <a href="https://es-la.facebook.com/JOSDINDANIEL" target="_blank">
+                            <i class="icon ion-social-facebook"></i></a>
+                        <a href="https://twitter.com/josdindaniel" target="_blank">
+                            <i class="icon ion-social-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/josdindaniel" target="_blank">
+                            <i class="icon ion-social-linkedin"></i></a>
+                    </div>
+                </div>
+                <p class="copyright">MyCloudPrices © 2019</p>
+            </div>
+        </footer>
+    </div>
+    <script src="js/validation.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="js/scrolling-nav.js"></script>
+    <script src="js/bs-animation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
